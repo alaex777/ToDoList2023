@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  title: ToDo List v 2023 API
+  description: Simple ToDo List with fastapi.
+  version: 0.1.0
+paths:
+  /get/tasks:
+    get:
+      summary: Returns a list of all tasks.
+      responses:
+        '200':    # status code
+          description: Everything is ok.
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: array
+                  items:
+                    type: string
+        '500':
+          description: Unknown error
+        '503':
+          description: Error connection to database
+  /create/task:
+    post:
+      summary: Creates task with content.
+      requestBody:
+        description: Task content to create
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+      responses:
+        '200':
+          description: Everything is ok.
+        '500':
+          description: Unknown error
+        '503':
+          description: Error connection to database
+  /delete/task/{id}:
+    delete:
+      summary: Deletes task with id.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Task ID
+      responses:
+        '200':    # status code
+          description: Everything is ok.
+        '500':
+          description: Unknown error
+        '503':
+          description: Error connection to database
+  /update/task/{id}:
+    put:
+      summary: Updates task with id.
+      parameters:
+        - in: path
+          name: id 
+          required: true
+          schema:
+            type: string
+          description: Task ID
+      requestBody:
+        description: Task content to update
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+      responses:
+        '200':    # status code
+          description: Everything is ok.
+        '500':
+          description: Unknown error
+        '503':
+          description: Error connection to database

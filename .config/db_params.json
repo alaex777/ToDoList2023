@@ -1,0 +1,10 @@
+{
+    "db_connection": {
+        "db_name": "todo_list_2023_db",
+        "user": "todo_list_2023_user",
+        "password": "todo_list_2023_password",
+        "host": "localhost",
+        "port": "5432"
+    },
+    "tasks_table": "tasks"
+}
