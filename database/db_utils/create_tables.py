@@ -6,9 +6,10 @@ from db_connection import PostgresConnection
 from connection_params import CONNECTION_PARAMS, TASKS_TABLE
 
 
-def main():
+def main(table_name=TASKS_TABLE):
     PostgresConnection(CONNECTION_PARAMS).run_cmd(
-        'CREATE TABLE %s (task_id text, content text);' % (TASKS_TABLE)
+        'CREATE TABLE %s (task_id text, content text, due_date text, type text);' % 
+        (table_name)
     )
 
 if __name__ == '__main__':

@@ -20,5 +20,6 @@ CONNECTION_PARAMS = DBConnectionParameters(
 )
 
 TASKS_TABLE = config['tasks_table']
+TEST_TABLE = 'test'
 
 config_file.close()
